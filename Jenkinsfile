@@ -5,7 +5,13 @@ pipeline {
     dockerImage = ""
   }
 
-  agent any
+  agent {
+        docker {
+            image 'docker:20.10.0' // Specify a Docker image with Docker CLI installed
+            registryUrl 'https://registry.hub.docker.com' // Adjust this based on your registry URL
+            registryCredentialsId 'cafanwii'
+        }
+    }
 
   stages {
 
