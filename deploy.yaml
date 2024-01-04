@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mkdocs-deployment
+  labels:
+    app: mkdocs
+spec:
+  replicas: 1 # Adjust the number of replicas as needed
+  selector:
+    matchLabels:
+      app: mkdocs
+  template:
+    metadata:
+      labels:
+        app: mkdocs
+    spec:
+      containers:
+      - name: mkdocs-container
+        image: cafanwii/httpd-documentation:latest # Use the name of your Docker image
+        ports:
+        - containerPort: 8000
